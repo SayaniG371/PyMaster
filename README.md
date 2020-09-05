@@ -34,7 +34,7 @@
 ###  Press `Manage Users` button to add/modify users.
 ###  Press `Select` button after log-in to select topic.
 ###  Press the `Run` button to run code.
-###  Press the `REFRESH` button after encoding or decoding each time.
+###  Press the `REFRESH` button to clear output.
 ###  Press the `BACK TO HOMESCREEN` button to go back to the main screen.
 ###  Press the `BACK` and `NEXT` buttons to traverse through example codes.
 
