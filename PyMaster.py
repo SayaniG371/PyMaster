@@ -104,9 +104,9 @@ def Enter(id, pwd):
                     Ref1()
 
                     if i == 0:
-                        s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  :",
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  :Code "+str(i+1)+" of 3",
                                    font=("Helvetica", 20))
-                        s2.place(x=300, y=450, anchor="center")
+                        s2.place(x=650, y=370, anchor="center")
 
                         txt = Text(et, font=("Helvetica", 10), height=10)
                         txt.insert("1.0", r"""String1 = 'Welcome to the World of Python'""" + "\n"
@@ -136,9 +136,9 @@ def Enter(id, pwd):
                         btn5.place(x=750, y=600, anchor="center")
 
                     if i == 1:
-                        s2 = Label(et, padx=10, pady=10, text="Creating a String with double Quotes  :",
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with double Quotes  :Code "+str(i+1)+" of 3",
                                    font=("Helvetica", 20))
-                        s2.place(x=300, y=450, anchor="center")
+                        s2.place(x=650, y=370, anchor="center")
 
                         txt = Text(et, font=("Helvetica", 10), height=10)
                         txt.insert("1.0", r"""String2 = "I'm a Python Developer" """ + "\n"
@@ -168,9 +168,9 @@ def Enter(id, pwd):
                         btn5.place(x=750, y=600, anchor="center")
 
                     if i == 2:
-                        s2 = Label(et, padx=10, pady=10, text="Creating a String with triple Quotes  :",
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with triple Quotes  :Code "+str(i+1)+" of 3",
                                    font=("Helvetica", 20))
-                        s2.place(x=300, y=450, anchor="center")
+                        s2.place(x=650, y=370, anchor="center")
 
                         txt = Text(et, font=("Helvetica", 10), height=10)
                         txt.insert("1.0", r"""String3 = '''Geeks """+"\n"+r"""For """+"\n"+"""Life'''""" + "\n"
@@ -199,9 +199,9 @@ def Enter(id, pwd):
                         btn5.configure(font=("Helvetica", 10))
                         btn5.place(x=750, y=600, anchor="center")
 
-                s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  :",
+                s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  : Code "+str(i+1)+" of 3",
                            font=("Helvetica", 20))
-                s2.place(x=300, y=450, anchor="center")
+                s2.place(x=650, y=370, anchor="center")
 
                 txt = Text(et, font=("Helvetica", 10), height=10)
                 txt.insert(INSERT, r"""String1 = 'Welcome to the World of Python'""" + "\n"
@@ -248,7 +248,9 @@ def Enter(id, pwd):
             rd.place(x=x, y=y)
             y += 50
 
-        btn = Button(et, text="Select", command=sel).place(x=400, y=150)
+        btn = Button(et, text="Select", width=15, command=sel)
+        btn.configure(font=("Helvetica", 20, "bold italic"))
+        btn.place(x=400, y=120)
 
         et.mainloop()
 
