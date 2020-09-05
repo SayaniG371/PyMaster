@@ -4,7 +4,7 @@ import sys
 from io import StringIO
 import contextlib
 import sqlite3
-
+from tkinter import messagebox
 
 root = Tk()
 root.title("PyMaster")
@@ -14,25 +14,6 @@ root.geometry("2000x2000")
 filename = PhotoImage(file="poster.png")
 background_label = Label(root, image=filename)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
-
-def Exe(code):
-    st = ""
-    @contextlib.contextmanager
-    def stdoutIO(stdout=None):
-        old = sys.stdout
-        if stdout is None:
-            stdout = StringIO()
-        sys.stdout = stdout
-        yield stdout
-        sys.stdout = old
-
-    with stdoutIO() as s:
-        try:
-            exec(code)
-        except:
-            print("Something wrong with the code")
-    st = s.getvalue()
-    return st
 
 
 def Enter(id, pwd):
@@ -58,80 +39,223 @@ def Enter(id, pwd):
         et.geometry("2000x2000")
 
 
-        def Run():
-            st = ""
-            code = txt.get("1.0", "end-1c")
-            st = Exe(code)
-            global lbl
-            lbl = Label(et, text="Output : \n" + st, font=("Helvetica", 10), wraplength=500)
-            lbl.place(x=950, y=500, anchor="center")
+        def sel():
+            res = character.get()
+            if int(res) == 1:
+                global i
+                global s2
+                global txt
+                global btn1
+                global btn2
+                global btn3
+                global btn4
+                i = 0
+                lblm = Label(et, background="skyblue", padx=10, pady=10, text="Strings in Python3 ",
+                             font=("Helvetica", 30))
+                lblm.place(x=950, y=100, anchor="center")
+                s1 = Label(et, background="skyblue", width=300, height=50,
+                           text="In Python, Strings are arrays of bytes representing" +
+                                " Unicode characters. However, Python does not have a " +
+                                "character data type, a single character is simply a " +
+                                "string with a length of 1. Square brackets can be used " +
+                                "to access elements of the string. " +
+                                "Strings in Python can be created using single quotes " +
+                                "or double quotes or even triple quotes. " +
+                                "\nRun the Follwing Codes one by one !!",
+                           font=("Helvetica", 15), wraplength=1100)
+                s1.place(x=670, y=270, anchor="center", relheight=0.2)
+                def Run(code):
+                    st = ""
+                    @contextlib.contextmanager
+                    def stdoutIO(stdout=None):
+                        old = sys.stdout
+                        if stdout is None:
+                            stdout = StringIO()
+                        sys.stdout = stdout
+                        yield stdout
+                        sys.stdout = old
+
+                    with stdoutIO() as s:
+                        try:
+                            exec(code)
+                        except:
+                            print("Something wrong with the code")
+                    st = s.getvalue()
+                    global lbl
+                    lbl = Label(et, text="Output : \n" + st, font=("Helvetica", 10), wraplength=500)
+                    lbl.place(x=950, y=500, anchor="center")
+
+                def Ref1():
+                    s2.destroy()
+                    txt.destroy()
+                    btn1.destroy()
+                    btn2.destroy()
+                    btn3.destroy()
+                    btn4.destroy()
+                    btn5.destroy()
+
+                def Ref2():
+                    lbl.destroy()
+
+                def Backtohm():
+                    et.destroy()
+
+                def Change(i):
+                    Ref1()
+
+                    if i == 0:
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  :",
+                                   font=("Helvetica", 20))
+                        s2.place(x=300, y=450, anchor="center")
+
+                        txt = Text(et, font=("Helvetica", 10), height=10)
+                        txt.insert("1.0", r"""String1 = 'Welcome to the World of Python'""" + "\n"
+                                           r"""print("String with the use of Single Quotes: ")""" +
+                                           "\n" + r"""print(String1)""")
+
+                        txt.place(x=300, y=500, anchor="center")
+
+                        btn1 = Button(et, text="Run", width=20, height=2, command=lambda: Run(txt.get("1.0", "end-1c")))
+                        btn1.configure(font=("Helvetica", 10))
+                        btn1.place(x=700, y=450, anchor="center")
+
+                        btn2 = Button(et, text="REFRESH", width=20, height=2, command=Ref2)
+                        btn2.configure(font=("Helvetica", 10))
+                        btn2.place(x=700, y=500, anchor="center")
+
+                        btn3 = Button(et, text="BACK TO HOMESCREEN", width=20, height=2, command=Backtohm)
+                        btn3.configure(font=("Helvetica", 10))
+                        btn3.place(x=700, y=550, anchor="center")
+
+                        btn4 = Button(et, text="NEXT", padx=15, pady=10, command=lambda: Change(i+1))
+                        btn4.configure(font=("Helvetica", 10))
+                        btn4.place(x=650, y=600, anchor="center")
+
+                        btn5 = Button(et, text="BACK", padx=15, pady=10, state=DISABLED)
+                        btn5.configure(font=("Helvetica", 10))
+                        btn5.place(x=750, y=600, anchor="center")
+
+                    if i == 1:
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with double Quotes  :",
+                                   font=("Helvetica", 20))
+                        s2.place(x=300, y=450, anchor="center")
+
+                        txt = Text(et, font=("Helvetica", 10), height=10)
+                        txt.insert("1.0", r"""String2 = "I'm a Python Developer" """ + "\n"
+                                           r"""print("\nString with the use of Double Quotes: ") """ +
+                                           "\n" + r"""print(String2)""")
+
+                        txt.place(x=300, y=500, anchor="center")
+
+                        btn1 = Button(et, text="Run", width=20, height=2, command=lambda: Run(txt.get("1.0", "end-1c")))
+                        btn1.configure(font=("Helvetica", 10))
+                        btn1.place(x=700, y=450, anchor="center")
+
+                        btn2 = Button(et, text="REFRESH", width=20, height=2, command=Ref2)
+                        btn2.configure(font=("Helvetica", 10))
+                        btn2.place(x=700, y=500, anchor="center")
+
+                        btn3 = Button(et, text="BACK TO HOMESCREEN", width=20, height=2, command=Backtohm)
+                        btn3.configure(font=("Helvetica", 10))
+                        btn3.place(x=700, y=550, anchor="center")
+
+                        btn4 = Button(et, text="NEXT", padx=15, pady=10, command=lambda: Change(i + 1))
+                        btn4.configure(font=("Helvetica", 10))
+                        btn4.place(x=650, y=600, anchor="center")
+
+                        btn5 = Button(et, text="BACK", padx=15, pady=10, command=lambda: Change(i - 1))
+                        btn5.configure(font=("Helvetica", 10))
+                        btn5.place(x=750, y=600, anchor="center")
+
+                    if i == 2:
+                        s2 = Label(et, padx=10, pady=10, text="Creating a String with triple Quotes  :",
+                                   font=("Helvetica", 20))
+                        s2.place(x=300, y=450, anchor="center")
+
+                        txt = Text(et, font=("Helvetica", 10), height=10)
+                        txt.insert("1.0", r"""String3 = '''Geeks """+"\n"+r"""For """+"\n"+"""Life'''""" + "\n"
+                                          r"""print("\nString with the use of Double Quotes: ") """ +
+                                          "\n" + r"""print(String2)""")
+
+                        txt.place(x=300, y=500, anchor="center")
+
+                        btn1 = Button(et, text="Run", width=20, height=2, command=lambda: Run(txt.get("1.0", "end-1c")))
+                        btn1.configure(font=("Helvetica", 10))
+                        btn1.place(x=700, y=450, anchor="center")
+
+                        btn2 = Button(et, text="REFRESH", width=20, height=2, command=Ref2)
+                        btn2.configure(font=("Helvetica", 10))
+                        btn2.place(x=700, y=500, anchor="center")
+
+                        btn3 = Button(et, text="BACK TO HOMESCREEN", width=20, height=2, command=Backtohm)
+                        btn3.configure(font=("Helvetica", 10))
+                        btn3.place(x=700, y=550, anchor="center")
+
+                        btn4 = Button(et, text="NEXT", padx=15, pady=10, state=DISABLED)
+                        btn4.configure(font=("Helvetica", 10))
+                        btn4.place(x=650, y=600, anchor="center")
+
+                        btn5 = Button(et, text="BACK", padx=15, pady=10, command=lambda: Change(i - 1))
+                        btn5.configure(font=("Helvetica", 10))
+                        btn5.place(x=750, y=600, anchor="center")
+
+                s2 = Label(et, padx=10, pady=10, text="Creating a String with single Quotes  :",
+                           font=("Helvetica", 20))
+                s2.place(x=300, y=450, anchor="center")
+
+                txt = Text(et, font=("Helvetica", 10), height=10)
+                txt.insert(INSERT, r"""String1 = 'Welcome to the World of Python'""" + "\n"
+                            r"""print("String with the use of Single Quotes: ")""" +
+                           "\n" + r"""print(String1)""")
+
+                txt.place(x=300, y=500, anchor="center")
+
+                btn1 = Button(et, text="Run", width=20, height=2, command=lambda: Run(txt.get("1.0", "end-1c")))
+                btn1.configure(font=("Helvetica", 10))
+                btn1.place(x=700, y=450, anchor="center")
+
+                btn2 = Button(et, text="REFRESH", width=20, height=2, command=Ref2)
+                btn2.configure(font=("Helvetica", 10))
+                btn2.place(x=700, y=500, anchor="center")
+
+                btn3 = Button(et, text="BACK TO HOMESCREEN", width=20, height=2, command=Backtohm)
+                btn3.configure(font=("Helvetica", 10))
+                btn3.place(x=700, y=550, anchor="center")
+
+                btn4 = Button(et, text="NEXT", padx=15, pady=10, command=lambda: Change(i + 1))
+                btn4.configure(font=("Helvetica", 10))
+                btn4.place(x=650, y=600, anchor="center")
+
+                btn5 = Button(et, text="BACK", padx=15, pady=10, state=DISABLED)
+                btn5.configure(font=("Helvetica", 10))
+                btn5.place(x=750, y=600, anchor="center")
+
+        labl1 = Label(et, text="Choose topic : ", padx=20, pady=20)
+        labl1.configure(font=("Helvetica", 30, "bold italic"))
+        labl1.place(x=200, y=100, anchor="center")
 
 
+        MODES = [
+            ("Strings", "1"),
+        ]
 
-        def Ref():
-            lbl.destroy()
+        character = StringVar()
+        character.set("1")
+        x, y = 400, 50
+        for text, mode in MODES:
+            rd = Radiobutton(et, text=text, variable=character, value=mode)
+            rd.configure(font=("Helvetica", 20, "bold italic"))
+            rd.place(x=x, y=y)
+            y += 50
 
-        def Back():
-            et.destroy()
-
-        lblm = Label(et, padx=20, pady=10, text="Strings in Python3 ", font=("Helvetica", 60))
-        lblm.place(x=750, y=50, anchor="center")
-
-        lbl1 = Label(et, background="skyblue", padx=100, pady=100, width=100, height=100, text="In Python, Strings are arrays of bytes representing"+
-                                                              " Unicode characters. However, Python does not have a "+
-                                                              "character data type, a single character is simply a "+
-                                                              "string with a length of 1. Square brackets can be used "+
-                                                              "to access elements of the string. "+
-                                                              "Strings in Python can be created using single quotes "+
-                                                              "or double quotes or even triple quotes. ",
-                                                               font=("Helvetica", 15), wraplength=1300)
-        lbl1.place(x=680, y=200, anchor="center", relheight=0.2)
-
-        lbl2 = Label(et, padx=20, pady=10, text="Creating a String :", font=("Helvetica", 15))
-        lbl2.place(x=300, y=300, anchor="center")
-
-        lbl3 = Label(et, padx=20, pady=10, text="Try to run the following code :", font=("Helvetica", 15))
-        lbl3.place(x=300, y=350, anchor="center")
-
-        # insert some text into the text widget
-        txt = Text(et, font=("Helvetica", 10), height=20)
-        txt.insert(INSERT, r"""# Creating a String with single Quotes 
-String1 = 'Welcome to the World of Python'
-print("String with the use of Single Quotes: ") 
-print(String1) 
-            
-# Creating a String with double Quotes 
-String2 = "I'm a Python Developer"
-print("\nString with the use of Double Quotes: ") 
-print(String2) 
-            
-# Creating a String with triple Quotes also allows multiple lines 
-String3 = '''Geeks 
-For 
-Life'''
-print("\nCreating a multiline String: ") 
-print(String3)""")
-
-        txt.place(x=300, y=540, anchor="center")
-
-        btn1 = Button(et, text="Run", borderwidth=0, padx=10, pady=10, command=Run)
-        btn1.configure(font=("Helvetica", 10))
-        btn1.place(x=700, y=500, anchor="center")
-
-        btn3 = Button(et, text="REFRESH", borderwidth=0, padx=10, pady=10, command=Ref)
-        btn3.configure(font=("Helvetica", 10))
-        btn3.place(x=700, y=550, anchor="center")
-
-        btn4 = Button(et, text="BACK TO HOMESCREEN", borderwidth=0, padx=10, pady=10, command=Back)
-        btn4.configure(font=("Helvetica", 10))
-        btn4.place(x=700, y=600, anchor="center")
-
-
+        btn = Button(et, text="Select", command=sel).place(x=400, y=150)
 
         et.mainloop()
 
+    else:
+        response = messagebox.showwarning("Invalid!!", "Invalid Credentials")
 
-def add_user():
+def user():
     root2 = Tk()
     root2.title("Users")
     root2.iconbitmap("disneyland.ico")
@@ -359,7 +483,7 @@ btn1 = Button(root, text="Enter", borderwidth=0, width=20, padx=1, pady=1, comma
 btn1.configure(font=("Helvetica", 15))
 btn1.place(x=680, y=640, anchor="center")
 
-btn2 = Button(root, text="Add New User", borderwidth=0, width=20, padx=1, pady=1, command=add_user)
+btn2 = Button(root, text="Manage Users", borderwidth=0, width=20, padx=1, pady=1, command=user)
 btn2.configure(font=("Helvetica", 15))
 btn2.place(x=680, y=680, anchor="center")
 
