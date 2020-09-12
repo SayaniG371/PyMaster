@@ -11,12 +11,13 @@
 
 ### 1. Fork this repository to your profile.
 ### 2. Clone or Download the files of this repository
-### 3. Change to your branch by typing git checkout `<branchname>` 
+### 3. Change to your branch by typing `git checkout <branchname>`
 ### 4. Make the changes and commit to the same branch and push it to your forked repository
-### 5. Create a pull request 
+### 5. Create a pull request TO THE `hackit`
 
 ## NOTE :
-### DO NOT COMMIT to the MASTER BRANCH. Only commit to the `hackit` branch.
+### `DO NOT COMMIT to the MASTER BRANCH`. 
+### `Only COMMIT to the hackit BRANCH`.
 
 ### Compulsory Coding Style :
 ### 1. Each Indentation should be equal to 4 spaces
