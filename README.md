@@ -7,7 +7,7 @@
 ## Submission Procedure
 ### Read the following steps and guidelines properly for proper submission of your project.
 
-### Steps :
+## Steps :
 
 ### 1. Fork this repository to your profile.
 ### 2. Clone or Download the files of this repository
@@ -19,9 +19,9 @@
 ### `DO NOT COMMIT to the MASTER BRANCH`. 
 ### `Only COMMIT to the hackit BRANCH`.
 
-#### Don't copy the existing(reference) code, add your own personified labels, buttons, textbox,  etc. 
+### Don't copy the existing(reference) code, add your own personified labels, buttons, textbox,  etc. 
 
-### Compulsory Coding Style :
+## Compulsory Coding Style :
 ### 1. Each Indentation should be equal to 4 spaces
 ### 2. Use Docstrings to write multiline comments
 ### 3. Use # to write single line comments
