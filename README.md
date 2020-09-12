@@ -5,15 +5,15 @@
 
 
 ## Submission Procedure
-### Read the following steps and guidelines properly for proper submission of your project.
+### Read the following steps and guidelines properly for proper submission of your project :
 
 ## Steps :
 
 ### 1. Fork this repository to your profile.
-### 2. Clone or Download the files of this repository
-### 3. Change to your branch by typing `git checkout <branchname>`
-### 4. Make the changes and commit to the same branch and push it to your forked repository
-### 5. Create a pull request TO THE `hackit`
+### 2. Clone or Download the files of this repository.
+### 3. Change to your branch by typing `git checkout <branchname>`.
+### 4. Make the changes and commit to the same branch and push it to your forked repository.
+### 5. Create a pull request to the `hackit` branch.
 
 ## NOTE :
 ### `DO NOT COMMIT to the MASTER BRANCH`. 
@@ -22,8 +22,8 @@
 ### Don't copy the existing(reference) code, add your own personified labels, buttons, textbox,  etc. 
 
 ## Compulsory Coding Style :
-### 1. Each Indentation should be equal to 4 spaces
-### 2. Use Docstrings to write multiline comments
-### 3. Use # to write single line comments
-### 4. Explain the main modules of each section of your code with suitable comments
-### 5. Follow the existing coding style and formatting
+### 1. Each Indentation should be equal to 4 spaces.
+### 2. Use Docstrings to write multiline comments.
+### 3. Use # to write single line comments.
+### 4. Explain the main modules of each section of your code with suitable comments.
+### 5. Follow the existing coding style and formatting.
