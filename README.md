@@ -19,6 +19,8 @@
 ### `DO NOT COMMIT to the MASTER BRANCH`. 
 ### `Only COMMIT to the hackit BRANCH`.
 
+#### Don't copy the existing(reference) code, add your own personified labels, buttons, textbox,  etc. 
+
 ### Compulsory Coding Style :
 ### 1. Each Indentation should be equal to 4 spaces
 ### 2. Use Docstrings to write multiline comments
